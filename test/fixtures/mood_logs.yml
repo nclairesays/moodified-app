@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mood: one
+  user: one
+  rating: one
+
+two:
+  mood: two
+  user: two
+  rating: two
