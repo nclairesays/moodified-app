@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BootstrapTest</title>
+    <title>Moodified App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -13,11 +13,18 @@
 
   <body>
 
-  <!-- Navigation -->
- 
+  <%= link_to "All Users", users_path %> | 
+  <%= link_to "Create A New User", new_user_path %> <br>
 
+  <%= link_to "All Moods", moods_path %> |
+  <%= link_to "Create A New Mood", new_mood_path %> <br>
+
+  <%= link_to "All Mood Logs", mood_logs_path %> |
+  <%= link_to "Create A New Mood Log", new_mood_log_path %> <br>
+    
+    <hr>
  
-    <%= yield %>
+  <%= yield %>
 
   </body>
 </html>

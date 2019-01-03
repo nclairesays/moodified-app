@@ -3,22 +3,24 @@ Mood.destroy_all
 MoodLog.destroy_all
 Rating.destroy_all
 
+l1 = Rating.create(level: 1)
+l2 = Rating.create(level: 2)
+l3 = Rating.create(level: 3)
+l4 = Rating.create(level: 4)
+l5 = Rating.create(level: 5)
+
 a = User.create(name: "Andy")
 b = User.create(name: "Becky")
 c = User.create(name: "Cathy")
 d = User.create(name: "Daisy")
 e = User.create(name: "Elly")
 
-happy = Mood.create(name: "happy")
-sad = Mood.create(name: "sad")
-ok = Mood.create(name: "ok")
-angry = Mood.create(name: "angry")
+happy = Mood.create(name: "Happy")
+sad = Mood.create(name: "Sad")
+ok = Mood.create(name: "Ok")
+angry = Mood.create(name: "Angry")
 
-l1 = Rating.create(level: 1)
-l2 = Rating.create(level: 2)
-l3 = Rating.create(level: 3)
-l4 = Rating.create(level: 4)
-l5 = Rating.create(level: 5)
+
 
 MoodLog.create(user: a, mood:happy, rating: l1)
 MoodLog.create(user: b, mood:sad, rating: l2)

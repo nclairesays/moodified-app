@@ -1,0 +1,25 @@
+<h4> Rate how strongly you feel your mood.</h4> 
+<h5> 5 = very strongly. 1 = not so much.</h5> 
+
+<%= form_with model: @mood_log do |f| %>
+    <%= f.label :user %>
+    <%=  f.text_field :user_name, list: "users_autocomplete", placeholder:"name" %>
+        <datalist id="users_autocomplete">
+            <% User.all.each do |user| %>
+                <option value="<%= user.name %>">
+                <% end %>
+        </datalist>
+<br>
+    <%= f.label :mood %>
+    <%=  f.text_field :mood_name, list: "moods_autocomplete"%>
+        <datalist id="moods_autocomplete">
+            <% Mood.all.each do |mood| %>
+                <option value="<%= mood.name %>">
+                <% end %>
+        </datalist>
+<br>
+    <%= f.label :rating %>
+    <%= f.collection_select :rating_id, Rating.all, :id, :level %> 
+<br>
+    <%= f.submit %>
+<% end %>

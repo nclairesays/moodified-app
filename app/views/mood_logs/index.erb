@@ -1,0 +1,16 @@
+<h1>List of All Feelers and their Feelings </h1>
+
+<ul>
+    <% @mood_logs.each do |ml| %>
+        <li> 
+            On <%= ml.date_time %>, <%= link_to ml.user_name, ml.user %> 
+            was feeling <%= link_to ml.mood_name, ml.mood %>
+            (level: <%= ml.rating_id %>)
+            (<%= link_to 'edit', edit_mood_log_path(ml) %>)
+        </li>
+    <% end %>
+
+</ul>
+
+
+<%# sort list %>

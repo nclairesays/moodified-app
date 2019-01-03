@@ -1,0 +1,9 @@
+<h1> List of All Moods</h1>
+<ul>
+    <% @moods.each do |mood| %>
+        <li>
+            <%= link_to mood.name, mood %> 
+            (<%= link_to 'edit', edit_mood_path(mood) %>)
+        </li>
+    <% end %>
+</ul>

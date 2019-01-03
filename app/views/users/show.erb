@@ -1,0 +1,18 @@
+<h1><%= @user.name  %> felt... </h1>
+
+<ul>
+    <% @user.mood_logs.each do |ml| %>
+        <li>
+            On <%= ml.date_time%>: 
+            <strong><%= link_to ml.mood_name, ml.mood %> 
+            (level: <%= ml.rating_id %>)</strong>
+            (<%= link_to 'edit', edit_mood_log_path(ml)  %>)
+        </li>
+    <% end %>
+</ul>
+
+
+<hr>
+
+<%= link_to 'Edit this User', edit_user_path %>
+

@@ -1,0 +1,8 @@
+<%= form_with model: @mood do |f| %>
+
+<%= f.label 'Mood Name' %> <br>
+<%= f.text_field :name %> <br>
+
+<%= f.submit "Submit Mood" %> <br>
+    
+<% end %>
