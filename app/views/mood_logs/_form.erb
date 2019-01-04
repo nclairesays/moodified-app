@@ -3,7 +3,7 @@
 <%= form_with model: @mood_log do |f| %>
     <%= f.label :user %>
     <% if !@mood_log.id %>
-        <%=  f.text_field :user_name, list: "users_autocomplete", placeholder:"name" %>
+        <%=  f.text_field :user_name, list: "users_autocomplete" %>
         <datalist id="users_autocomplete">
             <% @users.each do |user| %>
                 <option value="<%= user.name %>">

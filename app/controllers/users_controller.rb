@@ -9,7 +9,13 @@ class UsersController < ApplicationController
     end
 
     def show
+        # if session[:user_id]
+        #     @user = User.find(session[:user_id])
+        #     # flash[:msg] = ["Welcome, #{@user.name}! Log your feelings for today!"]
+        # else
+        # end
         @user = User.find(params[:id])
+
     end
 
     def create
@@ -48,6 +54,6 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end

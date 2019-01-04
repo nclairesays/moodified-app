@@ -1,3 +1,12 @@
+<!-- <% if flash[:msg] %>
+    <% flash[:msg].each do |msg| %>
+        <div class="p-2 m-3 bg-info text-dark d-inline" >
+          <%= msg %>
+        </div>
+ <% end %>
+<% end %>
+-->
+
 <h1><%= @user.name  %> felt... </h1>
 
 <ul>
@@ -13,6 +22,7 @@
 
 
 <hr>
-
+<%= link_to 'Create a New Mood Log Entry', new_mood_log_path %>
+<br> 
 <%= link_to 'Edit this User', edit_user_path %>
 
