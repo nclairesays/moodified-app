@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
     def index
-        @users = User.all
+        @users = User.all.sort_users
     end
 
     def new
@@ -13,10 +13,16 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.create(user_params)
-        redirect_to user
+        user = User.new(user_params)
+        if user.valid?
+            user.save
+            redirect_to user
+        else
+            flash[:errors] = user.errors.full_messages
+            redirect_to new_user_path
+        end
     end
-
+    
     def edit
         @user = User.find(params[:id])
     end
@@ -24,10 +30,15 @@ class UsersController < ApplicationController
     def update
         user = User.find(params[:id])
         user.update(user_params)
-        redirect_to user
+        if user.valid?
+            redirect_to user
+        else
+            flash[:errors] = user.errors.full_messages
+            redirect_to edit_user_path
+        end
     end
 
-       # user_log model --> dependent: :destroy
+    # user_log model --> dependent: :destroy
     def destroy
         user = User.find(params[:id])
         user.destroy

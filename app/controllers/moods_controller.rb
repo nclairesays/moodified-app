@@ -1,6 +1,6 @@
 class MoodsController < ApplicationController
     def index
-        @moods = Mood.all
+        @moods = Mood.all.sort_moods
     end
 
     def new
@@ -12,8 +12,14 @@ class MoodsController < ApplicationController
     end
 
     def create
-        @mood = Mood.create(mood_params)
-        redirect_to moods_path
+        mood = Mood.new(mood_params)
+        if mood.valid?
+            mood.save
+            redirect_to moods_path
+        else
+            flash[:errors] = mood.errors.full_messages
+            redirect_to new_mood_path
+        end
     end
 
     def edit
@@ -23,7 +29,13 @@ class MoodsController < ApplicationController
     def update
         mood = Mood.find(params[:id])
         mood.update(mood_params)
-        redirect_to mood
+
+        if mood.valid?
+            redirect_to mood
+        else
+            flash[:errors] = mood.errors.full_messages
+            redirect_to edit_mood_path
+        end
     end
 
 

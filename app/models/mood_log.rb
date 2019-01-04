@@ -3,6 +3,9 @@ class MoodLog < ApplicationRecord
   belongs_to :user #, optional: true
   belongs_to :rating
 
+  validates :user_name, presence: true
+  validates :mood_name, presence: true
+
   def user_name=(name)
     user = User.find_or_create_by(name: name)
     self.user = user
@@ -28,5 +31,9 @@ class MoodLog < ApplicationRecord
   def date_time
     self.updated_at.strftime('%B%e, %Y at %l:%M%P')
   end
+
+  def self.sort_logs
+    self.all.sort_by{|ml| ml.updated_at}
+end
 
 end

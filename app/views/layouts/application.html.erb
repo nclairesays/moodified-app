@@ -12,19 +12,59 @@
   </head>
 
   <body>
+  
+  <nav class="navbar navbar-expand-sm navbar-light" style="background-color: #48D1CC;">
+  <a class="navbar-brand" href="#">Moodified</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <%= link_to "All Users", users_path %> | 
-  <%= link_to "Create A New User", new_user_path %> <br>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
 
-  <%= link_to "All Moods", moods_path %> |
-  <%= link_to "Create A New Mood", new_mood_path %> <br>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Users
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "All Users", users_path, :class => "dropdown-item" %>
+          <%= link_to "Create A New User", new_user_path, :class => "dropdown-item" %>
+        </div>
+      </li>
 
-  <%= link_to "All Mood Logs", mood_logs_path %> |
-  <%= link_to "Create A New Mood Log", new_mood_log_path %> <br>
-    
-    <hr>
- 
-  <%= yield %>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Moods
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "All Moods", moods_path, :class => "dropdown-item" %>
+          <%= link_to "Create A New Mood", new_mood_path, :class => "dropdown-item" %>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mood Logs
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to "All Mood Logs", mood_logs_path, :class => "dropdown-item" %>
+          <%= link_to "Create A New Mood Log", new_mood_log_path, :class => "dropdown-item" %>
+        </div>
+      </li>
+    </ul>
+  </div>
+  </nav>
+
+    <% if flash[:errors ] %>
+      <% flash[:errors].each do |error| %>
+          <div class="p-2 m-3 bg-warning text-dark d-inline" >
+            <%= error %>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+
+ <div class="container p-3"> <%= yield %></div>
 
   </body>
 </html>
