@@ -52,11 +52,21 @@
           </div>
         </li>
 
-        <div>
-          <a href="/login" role="button">
-            <button class="btn btn-outline-secondary" type="button">Login</button>
-          </a>
-        </div>  
+        <% if @current_user%>
+          <div>
+            <a href="/logout" role="button">
+              <button class="btn btn-outline-secondary" type="button">Logout</button>
+            </a>
+         </div> 
+
+
+        <% else%>
+          <div>
+            <a href="/login" role="button">
+              <button class="btn btn-outline-secondary" type="button">Login</button>
+            </a>
+          </div>  
+        <% end %>
        </ul>
     </div>
   </nav>

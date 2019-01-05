@@ -9,12 +9,14 @@ class UsersController < ApplicationController
     end
 
     def show
-        # if session[:user_id]
-        #     @user = User.find(session[:user_id])
-        #     # flash[:msg] = ["Welcome, #{@user.name}! Log your feelings for today!"]
-        # else
-        # end
         @user = User.find(params[:id])
+
+        if session[:user_id] == params[:id].to_i
+            @current_user = current_user
+            # @user = User.find(session[:user_id])
+            # flash[:msg] = ["Welcome, #{@user.name}! Log your feelings for today!"]
+        else
+        end
 
     end
 
