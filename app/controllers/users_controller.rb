@@ -13,8 +13,8 @@ class UsersController < ApplicationController
 
         if session[:user_id] == params[:id].to_i
             @current_user = current_user
-            # @user = User.find(session[:user_id])
-            # flash[:msg] = ["Welcome, #{@user.name}! Log your feelings for today!"]
+            @user = User.find(session[:user_id])
+            flash[:msg] = ["Welcome, #{@user.name}! Log your feelings for today!"]
         else
         end
 

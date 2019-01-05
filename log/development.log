@@ -38135,3 +38135,378 @@ Processing by MoodLogsController#new as HTML
 Completed 200 OK in 105ms (Views: 86.8ms | ActiveRecord: 1.5ms)
 
 
+Started GET "/login" for 127.0.0.1 at 2019-01-05 00:05:05 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.erb within layouts/application
+  Rendered sessions/new.erb within layouts/application (5.3ms)
+Completed 200 OK in 393ms (Views: 380.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-01-05 00:05:14 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/models/user.rb:14
+  Rendering users/index.erb within layouts/application
+  Rendered users/index.erb within layouts/application (6.3ms)
+Completed 200 OK in 160ms (Views: 88.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-01-05 00:05:16 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.erb within layouts/application
+  Rendered sessions/new.erb within layouts/application (1.7ms)
+Completed 200 OK in 130ms (Views: 124.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-01-05 00:05:28 -0600
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/models/user.rb:14
+  Rendering users/index.erb within layouts/application
+  Rendered users/index.erb within layouts/application (5.6ms)
+Completed 200 OK in 111ms (Views: 101.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users/10/edit" for 127.0.0.1 at 2019-01-05 00:05:32 -0600
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:35
+  Rendering users/edit.erb within layouts/application
+  Rendered users/_form.erb (8.5ms)
+  Rendered users/edit.erb within layouts/application (14.2ms)
+Completed 200 OK in 99ms (Views: 85.7ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/10" for 127.0.0.1 at 2019-01-05 00:06:03 -0600
+Processing by UsersController#update as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3tvWkP9FD47wEIrWtoik3FAoabwdOQ4HTXzZz/4yqTfIlGj2HbljqI2rVKrkjXy4f1oz303eKy7HNS9SFOvEFw==", "user"=>{"name"=>"Joseph", "email"=>"jo@flatiron.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Submit", "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:39
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["name", "Joseph"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jo@flatiron.com"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "jo@flatiron.com"], ["password_digest", "$2a$10$ermib/MWZeM3VPPi7bHLsOTZuuz//oHkFP6L3tv3wJ1vg6Mx/5JBi"], ["updated_at", "2019-01-05 06:06:03.593644"], ["id", 10]]
+  ↳ app/controllers/users_controller.rb:40
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:40
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."name") = LOWER(?) AND "users"."id" != ? LIMIT ?[0m  [["name", "Joseph"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mUser Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "jo@flatiron.com"], ["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+Redirected to http://localhost:3000/users/10
+Completed 200 OK in 88ms (ActiveRecord: 5.4ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-05 00:06:03 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  Rendering users/show.erb within layouts/application
+  [1m[36mMoodLog Load (1.9ms)[0m  [1m[34mSELECT "mood_logs".* FROM "mood_logs" WHERE "mood_logs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/show.erb:13
+  [1m[36mMood Load (0.9ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  Rendered users/show.erb within layouts/application (62.0ms)
+Completed 200 OK in 157ms (Views: 144.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-01-05 00:06:11 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.erb within layouts/application
+  Rendered sessions/new.erb within layouts/application (2.0ms)
+Completed 200 OK in 100ms (Views: 94.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-01-05 00:06:26 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/jDIwhni0v5607c72JUups9o/Q0yJJbizE6riA18/DPY+Bt9GGMk0BfNg3Zd7lmHMjm1sZuSbobAGsxJACLcYA==", "email"=>"jo@flatiron.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jo@flatiron.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/users/10
+Completed 302 Found in 78ms (ActiveRecord: 0.3ms)
+
+
+Started GET "/users/10" for 127.0.0.1 at 2019-01-05 00:06:26 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  Rendering users/show.erb within layouts/application
+  [1m[36mMoodLog Load (0.1ms)[0m  [1m[34mSELECT "mood_logs".* FROM "mood_logs" WHERE "mood_logs"."user_id" = ?[0m  [["user_id", 10]]
+  ↳ app/views/users/show.erb:13
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  Rendered users/show.erb within layouts/application (3.6ms)
+Completed 200 OK in 72ms (Views: 66.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/mood_logs/new" for 127.0.0.1 at 2019-01-05 00:06:43 -0600
+Processing by MoodLogsController#new as HTML
+  [1m[36mMood Load (0.5ms)[0m  [1m[34mSELECT "moods".* FROM "moods"[0m
+  ↳ app/models/mood.rb:10
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/models/user.rb:14
+  Rendering mood_logs/new.erb within layouts/application
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT "ratings".* FROM "ratings"[0m
+  ↳ app/views/mood_logs/_form.erb:25
+  Rendered mood_logs/_form.erb (16.0ms)
+  Rendered mood_logs/new.erb within layouts/application (19.8ms)
+Completed 200 OK in 98ms (Views: 86.0ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/mood_logs" for 127.0.0.1 at 2019-01-05 00:07:01 -0600
+Processing by MoodLogsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IGyoYLQPHPO3vRiWkXw9j5Ck/Xs7jcqZWauf9yU+V11W5bmriPxttpLMOFPicyiDnJVG5iNB1KORzhMolCuY2Q==", "mood_log"=>{"user_name"=>"Joseph", "mood_name"=>"Peachy", "rating_id"=>"1"}, "commit"=>"Create Mood log"}
+  [1m[36mMood Load (0.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."name" = ? LIMIT ?[0m  [["name", "Peachy"], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:21
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Joseph"], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:10
+  [1m[36mRating Load (0.6ms)[0m  [1m[34mSELECT  "ratings".* FROM "ratings" WHERE "ratings"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/mood_logs_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/mood_logs_controller.rb:21
+  [1m[36mMoodLog Create (1.6ms)[0m  [1m[32mINSERT INTO "mood_logs" ("mood_id", "user_id", "rating_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["mood_id", 7], ["user_id", 10], ["rating_id", 1], ["created_at", "2019-01-05 06:07:01.632167"], ["updated_at", "2019-01-05 06:07:01.632167"]]
+  ↳ app/controllers/mood_logs_controller.rb:21
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/mood_logs_controller.rb:21
+Redirected to http://localhost:3000/mood_logs
+Completed 200 OK in 15ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/mood_logs" for 127.0.0.1 at 2019-01-05 00:07:01 -0600
+Processing by MoodLogsController#index as HTML
+  [1m[36mMoodLog Load (0.4ms)[0m  [1m[34mSELECT "mood_logs".* FROM "mood_logs"[0m
+  ↳ app/models/mood_log.rb:36
+  Rendering mood_logs/index.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (1.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.6ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.4ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  Rendered mood_logs/index.erb within layouts/application (66.8ms)
+Completed 200 OK in 177ms (Views: 162.1ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-01-05 00:07:26 -0600
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.erb within layouts/application
+  Rendered sessions/new.erb within layouts/application (2.3ms)
+Completed 200 OK in 110ms (Views: 104.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/sessions" for 127.0.0.1 at 2019-01-05 00:07:44 -0600
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hp+eeHVMtbmDcPFqlGGdFJFmEsWoRkcCrmYYZvVOroqgV03HdM1Dl+5uxScRGuo1bDdaeQHwv2aiMn+n+BCO2Q==", "email"=>"claire@flatiron.com", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "claire@flatiron.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 78ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/9" for 127.0.0.1 at 2019-01-05 00:07:44 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:3
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:16
+  Rendering users/show.erb within layouts/application
+  [1m[36mMoodLog Load (0.2ms)[0m  [1m[34mSELECT "mood_logs".* FROM "mood_logs" WHERE "mood_logs"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/views/users/show.erb:13
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  Rendered users/show.erb within layouts/application (3.3ms)
+Completed 200 OK in 66ms (Views: 58.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/mood_logs" for 127.0.0.1 at 2019-01-05 00:07:47 -0600
+Processing by MoodLogsController#index as HTML
+  [1m[36mMoodLog Load (0.4ms)[0m  [1m[34mSELECT "mood_logs".* FROM "mood_logs"[0m
+  ↳ app/models/mood_log.rb:36
+  Rendering mood_logs/index.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.2ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 22], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mMood Load (0.1ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:16
+  [1m[36mCACHE Mood Load (0.0ms)[0m  [1m[34mSELECT  "moods".* FROM "moods" WHERE "moods"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/models/mood_log.rb:27
+  Rendered mood_logs/index.erb within layouts/application (58.6ms)
+Completed 200 OK in 135ms (Views: 121.7ms | ActiveRecord: 5.0ms)
+
+
